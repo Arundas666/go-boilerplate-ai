@@ -1,0 +1,29 @@
+ecommerce/
+	├── main.go
+	├── models/
+	│   ├── user.go
+	│   ├── product.go
+    │   ├── order.go
+	├── handlers/
+	│   ├── user_handler.go
+	│   ├── product_handler.go
+    │   ├── order_handler.go
+	├── services/
+	│   ├── user_service.go
+	│   ├── product_service.go
+    │   ├── order_service.go
+    │   ├── payment_service.go
+	├── repositories/
+	│   ├── user_repository.go
+	│   ├── product_repository.go
+    │   ├── order_repository.go
+    │   ├── payment_repository.go
+	├── db/
+	│   ├── connection.go
+    │   ├── migrate.go
+	├── config/
+	│   ├── database.yaml
+	│   ├── server.yaml
+	├── utils/
+	│   ├── error.go
+	│   ├── validation.go
