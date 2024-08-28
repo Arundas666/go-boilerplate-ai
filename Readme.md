@@ -62,4 +62,4 @@ This project is a Golang-based tool that utilizes OpenAI's GPT-3.5-turbo model t
 
     - The generated code will be in `code/code.go`.
     - The folder structure will be detailed in `code/output.txt`.
-    - The folder structure will
+    - The folder structure will created under the `project/ directory`.
