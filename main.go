@@ -10,9 +10,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-const (
-	apiEndpoint = "https://api.openai.com/v1/chat/completions"
-)
 
 func main() {
 
@@ -28,14 +25,8 @@ func main() {
 	fmt.Println("You entered:", input)
 	fmt.Println("IPIS", input)
 
-	qnsAndCode := "Start fresh chat. You are a golang programmer, you need to create a golang project on the given topic.Give complete code without wrap.The topic is as follows:  \n" + input
-	qnsAndTopic := `Start fresh chat. You are a golang programmer, you need to create a golang project on the given topic.Give the complete folder structure of the project without wrap,the folder should be looks like ecommerce/
-	├── main.go
-	├── models/
-	│   ├── user.go
-	│   ├── product.go
-	├── handlers/.
-	Add or delete folders and files according your concept reagrding the topic.The topic is as follows:  \n` + input
+	qnsAndCode := helper.QnsAndCode + input
+	qnsAndTopic := helper.QnsAndTopic + input
 	answer, err := getAnswerFromOpenAI(qnsAndCode, apiKey)
 	if err != nil {
 		fmt.Println(err)
@@ -67,7 +58,7 @@ func getAnswerFromOpenAI(question string, apiKey string) (string, error) {
 			"model":    "gpt-3.5-turbo",
 			"messages": []map[string]interface{}{{"role": "user", "content": question}},
 		}).
-		Post(apiEndpoint)
+		Post(helper.ApiEndpoint)
 	if err != nil {
 		return "", err
 	}
